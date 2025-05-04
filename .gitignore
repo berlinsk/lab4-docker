@@ -1,0 +1,7 @@
+# Ігноруємо віртуальне оточення Maslo
+/Maslo/
+
+/.vscode/
+/__pycache__/
+/*.pyc
+/.DS_Store
