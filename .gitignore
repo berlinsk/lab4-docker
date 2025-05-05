@@ -1,8 +1,14 @@
 /Maslo/
 /mysql_data/
-/.vscode/
-/__pycache__/
+__pycache__/
+/**/__pycache__/
 /*.pyc
+*.pyo
+*.pyd
 .DS_Store
+.vscode/
 *.ipynb_checkpoints/
 .env
+*.env
+*.log
+*.sqlite3

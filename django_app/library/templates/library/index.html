@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Бібліотека</title>
+    <style>
+        em {
+            color: darkgreen;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        th, td {
+            border: 1px solid gray;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            font-weight: bold;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Проєкт Django — Бібліотека</h1>
+    <p><em>Масло Дмитро Андрійович, КІ-21012б</em></p>
+
+    <h2>Книги</h2>
+    <table>
+        <tr>
+            <th>ID</th><th>Автор</th><th>Назва</th><th>Розділ</th><th>Рік</th><th>Сторінки</th><th>Ціна</th><th>Вид</th><th>К-сть</th><th>Макс. днів</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.inventory_number }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.type }}</td>
+            <td>{{ book.copies }}</td>
+            <td>{{ book.max_days }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Читачі</h2>
+    <table>
+        <tr>
+            <th>ID</th><th>Прізвище</th><th>Ім'я</th><th>Телефон</th><th>Адреса</th><th>Курс</th><th>Група</th>
+        </tr>
+        {% for r in readers %}
+        <tr>
+            <td>{{ r.ticket_number }}</td>
+            <td>{{ r.last_name }}</td>
+            <td>{{ r.first_name }}</td>
+            <td>{{ r.phone }}</td>
+            <td>{{ r.address }}</td>
+            <td>{{ r.course }}</td>
+            <td>{{ r.group_name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Видачі</h2>
+    <table>
+        <tr>
+            <th>ID</th><th>Дата</th><th>Читач</th><th>Книга</th>
+        </tr>
+        {% for i in issues %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.issue_date }}</td>
+            <td>{{ i.reader.last_name }} {{ i.reader.first_name }}</td>
+            <td>{{ i.book.title }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
